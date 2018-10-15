@@ -1,29 +1,42 @@
-# NativeScript Angular Template
+# NativeScript Angular custom loader demo
 
-This template creates a "Hello, world" NativeScript app using TypeScript and Angular.
+The application has a single lazily loaded module - `LazyModule` in `src/app/lazy/lazy.module`.
 
-You can create a new app that uses this template with either the `--template` option.
+## Running only the webpack build
 
-```
-tns create my-app-name --template tns-template-hello-world-ng
-```
-
-Or the `--ng` shorthand.
+1. Install the dependencies
 
 ```
-tns create my-app-name --ng
+npm i
 ```
 
-> Note: Both commands will create a new NativeScript app that uses the latest version of this template published to [npm] (https://www.npmjs.com/package/tns-template-hello-world-ng).
-
-If you want to create a new app that uses the source of the template from the `master` branch, you can execute the following:
+2. Run webpack
 
 ```
-tns create my-app-name --template https://github.com/NativeScript/template-hello-world-ng.git#master
+npx webpack --env.android
 ```
 
-**NB:** Please, have in mind that the master branch may refer to dependencies that are not on NPM yet!
+After the compilation is over, you will notice that no chunk was generated for the lazy module.
 
-# Issues
+## Running the {N} application
 
-Issues related to `template-hello-world-ng` template should be logged in the https://github.com/NativeScript/NativeScript repository.
+1. Install the dependencies
+
+```
+npm i
+```
+
+2. Install the prerelease version of {N} CLI
+
+```
+npm i -g nativescript@next
+```
+
+3. Run the preview command
+
+```
+tns preview --bundle
+```
+
+4. Follow the instructions printed by the command. You will need a mobile device and will have to install a mobile application from the Play Store or the App Store.
+
