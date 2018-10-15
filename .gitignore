@@ -3,4 +3,6 @@ node_modules
 hooks
 
 src/**/*.js
+*.swp
+*.swa
 

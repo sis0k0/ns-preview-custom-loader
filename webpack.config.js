@@ -44,6 +44,43 @@ module.exports = env => {
         sourceMap, // --env.sourceMap
         hmr, // --env.hmr,
     } = env;
+
+    env.externals = [
+        '@angular/animations',
+        '@angular/common',
+        '@angular/compiler',
+        '@angular/core',
+        '@angular/forms',
+        '@angular/http',
+        '@angular/platform-browser',
+        '@angular/platform-browser-dynamic',
+        '@angular/router',
+        'kinvey-nativescript-sdk',
+        'nativescript-accelerometer',
+        'nativescript-angular',
+        'nativescript-background-http',
+        'nativescript-camera',
+        'nativescript-fresco',
+        'nativescript-geolocation',
+        'nativescript-imagepicker',
+        'nativescript-intl',
+        'nativescript-iqkeyboardmanager',
+        'nativescript-social-share',
+        'nativescript-ui-autocomplete',
+        'nativescript-ui-calendar',
+        'nativescript-ui-chart',
+        'nativescript-ui-dataform',
+        'nativescript-ui-gauge',
+        'nativescript-ui-listview',
+        'nativescript-ui-sidedrawer',
+        'nativescript-vue',
+        'reflect-metadata',
+        'rxjs',
+        'tns-core-modules',
+        'zone.js',
+    ];
+    // env.externals = [];
+
     const externals = (env.externals || []).map((e) => { // --env.externals
         return new RegExp(e + ".*");
     });
