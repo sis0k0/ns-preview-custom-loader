@@ -45,7 +45,7 @@ module.exports = env => {
         hmr, // --env.hmr,
     } = env;
 
-    env.externals = [
+    env.externals = env.externals || [
         '@angular/animations',
         '@angular/common',
         '@angular/compiler',
@@ -79,7 +79,6 @@ module.exports = env => {
         'tns-core-modules',
         'zone.js',
     ];
-    // env.externals = [];
 
     const externals = (env.externals || []).map((e) => { // --env.externals
         return new RegExp(e + ".*");
@@ -250,13 +249,13 @@ module.exports = env => {
             // Remove all files from the out dir.
             new CleanWebpackPlugin([`${dist}/**/*`]),
             // Copy native app resources to out dir.
-            new CopyWebpackPlugin([
-                {
-                    from: `${appResourcesFullPath}/${appResourcesPlatformDir}`,
-                    to: `${dist}/App_Resources/${appResourcesPlatformDir}`,
-                    context: projectRoot
-                },
-            ]),
+            // new CopyWebpackPlugin([
+            //     {
+            //         from: `${appResourcesFullPath}/${appResourcesPlatformDir}`,
+            //         to: `${dist}/App_Resources/${appResourcesPlatformDir}`,
+            //         context: projectRoot
+            //     },
+            // ]),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
                 { from: "fonts/**" },
