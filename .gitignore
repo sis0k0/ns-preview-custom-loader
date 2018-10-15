@@ -2,5 +2,5 @@ platforms
 node_modules
 hooks
 
-app/**/*.js
+src/**/*.js
 
